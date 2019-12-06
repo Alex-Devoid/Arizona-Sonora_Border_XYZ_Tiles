@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title>basemap -- pan & zoom</title>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<style type="text/css">
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+</style>
+</head>
+
+<body>
+<script>
+
+var imgHeight = 1078, imgWidth = 1403,      // Image dimensions (don't change these)
+    width =  1403, height = 1078,             // Dimensions of cropped region
+    translate0 = [-290, -180], scale0 = 1;  // Initial offset & scale
+
+svg = d3.select("body").append("svg")
+    .attr("width",  width + "px")
+    .attr("height", height + "px");
+
+svg.append("rect")
+    .attr("class", "overlay")
+    .attr("width", width + "px")
+    .attr("height", height + "px");
+
+svg = svg.append("g")
+    .attr("transform", "translate(" + translate0 + ")scale(" + scale0 + ")")
+    .call(d3.zoom().scaleExtent([1, 8]).on("zoom", zoom))
+  .append("g");
+
+svg.append("image")
+    .attr("width",  imgWidth + "px")
+    .attr("height", imgHeight + "px")
+    .attr("xlink:href", "AZ-Sonora_Border_Map_Image.png");
+
+function zoom() {
+  svg.attr("transform", d3.event.transform)
+  console.log("transform: " + d3.event.transform);
+}
+
+</script>
+</body>
+
+</html>

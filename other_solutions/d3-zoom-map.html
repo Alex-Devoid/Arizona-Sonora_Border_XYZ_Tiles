@@ -76,6 +76,7 @@ function zoomed(d) {
 
 function jump() {
   var t = d3.select(this);
+  console.log(t);
   (function repeat() {
     t = t.transition()
         .call(zoomTo(ny, 6).event)
