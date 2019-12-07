@@ -9,6 +9,14 @@
   fill: none;
   pointer-events: all;
 }
+.proposed {
+  fill: #ccc;
+  cursor: pointer;
+}
+
+.active {
+  stroke: orange;
+}
 
 </style>
 </head>
@@ -30,16 +38,20 @@ var json = {
 ]
 }
 
-var sf = [-114.392796,32.373276 ],
-    ny = [-112.845207,31.882356 ],
-    ty = [-110.644484,31.322747 ];
+var yuma1 = [-114.752,32.669 ],
+    yuma2 = [-114.399,32.372 ],
+    yuma10_27 = [-114.336,32.349],
+    yuma3 = [-113.697,32.158],
+    tucson1_2 = [-112.968,31.929],
+    tucson3 = [-109.821,31.339];
 
 var imgHeight = 1078, imgWidth = 1403,      // Image dimensions (don't change these)
     width =  1403, height = 1078,             // Dimensions of cropped region
     active = d3.select(null);
 
 
-var zoom = d3.zoom().on("zoom", zoomed)
+var zoom = d3.zoom().translateExtent([[0,0], [width, height]])
+    .extent([[0, 0], [width, height]]).on("zoom", zoomed)
 
 var projection = d3.geoMercator().fitHeight([height], json);
 var path = d3.geoPath().projection(projection);
@@ -54,26 +66,269 @@ d3.select('body')
     // proposedWall.call(clicked)
 
     g.transition()
-        .duration(750)
-          .call(zoom.scaleTo, 8)
+    .duration(1500)
+          // .call(zoom.scaleTo, 4)
           .transition()
-          .call(zoom.translateTo, projection(sf)[0],projection(sf)[1])
+
+          // .call(zoom.translateTo, projection(yuma1)[0],projection(yuma1)[1])
+          .call( zoom.transform, d3.zoomIdentity.translate(-300,-900).scale(4) )
+
+          .transition()
+          .on('start',function(){
+
+            proposedWall.each(function(d){
+
+              console.log("hi");
+              if (d.properties.name === "yuma1") {
+
+                changeText(d.properties)
 
 
+                 active = d3.select(this)
+
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "15")
+                 .style("stroke", "#ffff66")
+                 .style("stroke-linecap","round")
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "6")
+                 .style("stroke", "#66b3ff")
+                 .transition()
+                 .duration(800)
+                 .style("stroke-linecap","butt")
+
+              }
+
+            })
+
+          })
 
         .transition()
-        .duration(750)
-        .call(zoom.scaleTo, 8)
+    .duration(1500)
+        .call(zoom.scaleTo, 4)
         .transition()
-        .call(zoom.translateTo, projection(ny)[0],projection(ny)[1])
+        .call(zoom.translateTo, projection(yuma2)[0],projection(yuma2)[1])
+        .transition()
+        .on('start',function(){
+
+          proposedWall.each(function(d){
+
+            console.log("hi");
+            if (d.properties.name === "yuma2") {
+
+              changeText(d.properties)
+
+               active = d3.select(this)
+
+               .transition()
+               .duration(1000)
+               .style("stroke-width", "15")
+               .style("stroke", "#ffff66")
+               .style("stroke-linecap","round")
+               .transition()
+               .duration(1000)
+               .style("stroke-width", "6")
+               .style("stroke", "#66b3ff")
+               .transition()
+               .duration(800)
+               .style("stroke-linecap","butt")
+
+            }
+
+          })
+
+        })
 
 
 
           .transition()
-          .duration(750)
-          .call(zoom.scaleTo, 8)
+
+
           .transition()
-          .call(zoom.translateTo, projection(ty)[0],projection(ty)[1])
+      .duration(1500)
+          .call(zoom.translateTo, projection(yuma10_27)[0],projection(yuma10_27)[1])
+          .transition()
+          .on('start',function(){
+
+            proposedWall.each(function(d){
+
+              console.log("hi");
+              if (d.properties.name === "yuma10_27") {
+
+
+                changeText(d.properties)
+
+                 active = d3.select(this)
+
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "15")
+                 .style("stroke", "#ffff66")
+                 .style("stroke-linecap","round")
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "6")
+                 .style("stroke", "#66b3ff")
+                 .transition()
+                 .duration(800)
+                 .style("stroke-linecap","butt")
+
+              }
+
+            })
+
+          })
+
+
+          .transition()
+      .duration(1500)
+          .call(zoom.scaleTo, 4)
+          .transition()
+
+          .call(zoom.translateTo, projection(yuma3)[0],projection(yuma3)[1])
+          .transition()
+          .on('start',function(){
+
+            proposedWall.each(function(d){
+
+              console.log("hi");
+              if (d.properties.name === "yuma3") {
+
+                changeText(d.properties)
+
+                 active = d3.select(this)
+
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "15")
+                 .style("stroke", "#ffff66")
+                 .style("stroke-linecap","round")
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "6")
+                 .style("stroke", "#66b3ff")
+                 .transition()
+                 .duration(800)
+                 .style("stroke-linecap","butt")
+
+              }
+
+            })
+
+          })
+
+          .transition()
+      .duration(1500)
+          .call(zoom.scaleTo, 4)
+          .transition()
+          .call(zoom.translateTo, projection(tucson1_2)[0],projection(tucson1_2)[1])
+          .transition()
+          .on('start',function(){
+
+            proposedWall.each(function(d){
+
+              console.log("hi");
+              if (d.properties.name === "tucson1") {
+
+                changeText(d.properties)
+
+                 active = d3.select(this)
+
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "15")
+                 .style("stroke", "#ffff66")
+                 .style("stroke-linecap","round")
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "6")
+                 .style("stroke", "#66b3ff")
+                 .transition()
+                 .duration(800)
+                 .style("stroke-linecap","butt")
+
+              }
+
+            })
+
+          })
+
+          .transition()
+      .duration(1500)
+          .call(zoom.scaleTo, 4)
+          .transition()
+          .call(zoom.translateTo, projection(tucson1_2)[0],projection(tucson1_2)[1])
+          .transition()
+          .on('start',function(){
+
+            proposedWall.each(function(d){
+
+              console.log("hi");
+              if (d.properties.name === "tucson2") {
+
+                changeText(d.properties)
+
+                 active = d3.select(this)
+
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "15")
+                 .style("stroke", "#ffff66")
+                 .style("stroke-linecap","round")
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "6")
+                 .style("stroke", "#66b3ff")
+                 .transition()
+                 .duration(800)
+                 .style("stroke-linecap","butt")
+
+              }
+
+            })
+
+          })
+
+
+
+
+          .transition()
+      .duration(1500)
+          .call(zoom.scaleTo, 2)
+          .transition()
+          .call(zoom.translateTo, projection(tucson3)[0],projection(tucson3)[1])
+          .transition()
+          .on('start',function(){
+
+            proposedWall.each(function(d){
+
+              console.log("hi");
+              if (d.properties.name === "tucson3") {
+
+                changeText(d.properties)
+
+                 active = d3.select(this)
+
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "15")
+                 .style("stroke", "#ffff66")
+                 .style("stroke-linecap","round")
+                 .transition()
+                 .duration(1000)
+                 .style("stroke-width", "6")
+                 .style("stroke", "#66b3ff")
+                 .transition()
+                 .duration(800)
+                 .style("stroke-linecap","butt")
+
+              }
+
+            })
+
+          })
 
 
 
@@ -82,8 +337,10 @@ d3.select('body')
 
 
 
+
+
 svg = d3.select("body").append("svg")
-.attr("viewBox", "0 0 " +width+ " "+height)
+.attr("viewBox", "100 200 1280 720")
 
 
 
@@ -91,6 +348,13 @@ svg = d3.select("body").append("svg")
 
 var g = svg.append("g")
            .call(zoom)
+
+
+
+
+
+
+
 
 
 g.append("image")
@@ -101,8 +365,126 @@ g.append("image")
     .attr("xlink:href", "asMap.png");
 
 
+    var rect = svg.append('rect').attr('width', 500)
+                   .attr('height', 80)
+                   .attr('x', (width/1.5 -90))
+                   .attr('y', height/4 -4)
+                   .style('fill', 'white')
+                   .style('opacity', .6)
+                   .attr('stroke', 'black')
+                   console.log(width/1.49);
+    var textContractor = svg.append('text').text('The Trump administration has awarded $1.95 billion')
+    .attr('x', width/1.49 -90)
+    .attr('y', height/3.75)
+    .attr('fill', 'black')
+    .attr('font-size', 20)
+
+    var textPlace = svg.append('text').text('')
+    .attr('x', width/1.49 -90)
+      .attr('y', height/3.75 + 92)
+
+    .attr('id', "place1")
+    .attr('fill', 'black')
+    .attr('font-size', 20)
+
+    var textCost = svg.append('text').text('in construction contracts to three companies')
+    .attr('x', width/1.49 -90)
+    .attr('y', height/3.75 + 26)
+
+    .attr('fill', 'black')
+    .attr('font-size', 20)
+    // .attr('font-size', 16)
+
+    var textCostPerMile = svg.append('text').text('to build more border walls in Arizona.')
+    .attr('x', width/1.49 -90)
+
+    .attr('y', height/3.75 + 48)
+    .attr('fill', 'black')
+    .attr('font-size', 20)
+
+    var textMiles = svg.append('text').text('')
+    .attr('x', width/1.49 -90)
+    .attr('y', height/3.75 + 70)
+    .attr('fill', 'black')
+    .attr('font-size', 20)
+
+
+function changeText(properties){
+
+
+
+
+  textContractor.transition().text(properties.contractor)
+  .attr('font-size', 20)
+
+                // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
+                // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
+
+
+  textMiles.transition().text(properties.contractMiles)
+  .attr('font-size', 20)
+           // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
+           // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
+
+  textCost.transition().text( properties.contractCost+" in total.")
+
+  .attr('font-size', 20)
+          // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
+          // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
+
+  textCostPerMile.transition().text(properties.contractCostPerMile+" per mile.")
+  .attr('font-size', 20)
+                  // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
+                  // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
+
+  textPlace.transition().text(properties.contractPlace)
+  .attr('font-size', 20)
+
+                  // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
+                  // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
+
+
+
+
+
+
+                      // var tLength = this.getBoundingClientRect().width
+
+
+
+
+
+
+
+                  rect.transition().duration(1000).attr('width', 530)
+                                 .attr('height', 125 + 80)
+                                 .attr('x', (width/1.5 -90) - 20)
+                                 .attr('y', height/4 -24)
+                                 .style('fill', '#ffff66')
+                                 .style('stroke', '#ffff66')
+                                 .style("stroke-opacity",  1)
+                  .transition().duration(1000).attr('width', 525)
+                                 .attr('height', 125)
+                                 .attr('x', (width/1.5 -90))
+                                 .attr('y', height/4 -4)
+                                 .style('fill', 'white')
+                                 .style('stroke', 'black')
+                               //   .attr('width', function(){ var tLength = d3.select("#place1").node().getBBox().width;
+                               //   console.log(d3.select("#place1").node());
+                               //   console.log(tLength);
+                               //   return tLength + 6
+                               //
+                               //
+                               // })
+
+}
+
+
+
+
+
 d3.json('https://raw.githubusercontent.com/Alex-Devoid/Swiper-BorderMap-data/master/existing_wall.geojson', function(err, wall) {
-d3.json('https://raw.githubusercontent.com/Alex-Devoid/Swiper-BorderMap-data/master/Copy_of_US_Mexico_Border_Monuments.geojson', function(err, proposed) {
+d3.json('undercontract_border.geojson', function(err, proposed) {
 
 wallExist = wall.features;
 
@@ -123,8 +505,9 @@ var proposedWall;
     proposedWall = g.selectAll('.proposed')
             .data(proposed.features).enter()
             .append('path')
-            .style("stroke-width", "8")
-            .style("stroke",  "#4dabee")
+            .style("stroke-width", "6")
+            .style("stroke",  "#66b3ff")
+            .style("stroke-opacity",  .90)
               .attr('class', "proposed")
               .attr('id', function(d){
                   if (d.properties.Name ==="Line 80") {
@@ -161,6 +544,7 @@ var proposedWall;
                     return "#f3ad6a"
                   }
           })
+          .style("stroke-opacity",  .90)
         .attr("class", function(d){
                  if (d.properties.id === 13) {
                     return "pedestrianLabel";
@@ -194,7 +578,7 @@ var proposedWall;
 
         lableG.append('rect')
         .attr("class","labelPedertiran")
-        .attr("height","4%")
+        .attr("height",25)
         .attr("width",.5)
 
         .attr("stroke","#ec3644")
@@ -204,86 +588,34 @@ var proposedWall;
         .attr("font-size", "12px")
         .attr("fill", "#ec3644")
 
-        .text("15 Foot wall")
+        .text("Existing wall")
 
         var lableV = g.append('g').attr('transform','translate('+existingVehicleLabelCent[0]+' '+existingVehicleLabelCent[1]+')')
 
         lableV.append('rect')
               .attr("class","labelVehicle")
-              .attr("height","4%")
+              .attr("height",25)
               .attr("width",.5)
               .attr("stroke","#f3ad6a")
 
         lableV.append("text").attr("text-anchor", "middle")
               .attr("dy","4.75%")
               .attr("font-size", "12px")
-              .attr("fill", "#f3966a")
+              .attr("fill", "#d65011")
               .style("text-shadow", '1.5px 1.5px #000000, .9')
               .attr("font-weight", 200)
-              .text("Current Vehicle Barrier")
+              .text("Vehicle Barrier")
 
     }
-
-
-function clicked(a) {
-  // if (active.node() === this) return reset();
-  // active.classed("active", false);
-  // active = d3.select(this).classed("active", true);
-// console.log(a.data());
-//
-var transScale =[];
-var dataArray = a.data()
-//
-//
-dataArray.forEach(function(d, i){
-console.log(d);
-
-
-
-
-
-
-  var bounds = path.bounds(d),
-      dx = bounds[1][0] - bounds[0][0],
-      dy = bounds[1][1] - bounds[0][1],
-      x = (bounds[0][0] + bounds[1][0]) / 2,
-      y = (bounds[0][1] + bounds[1][1]) / 2,
-      scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / width, dy / height))),
-      translate = [width / 2 - scale * x, height / 2 - scale * y];
-
-transScale.push([translate[0],translate[1],scale])
-
-
-    }
-    )
-
-
-  g.transition()
-
-      .duration(750)
-      .call( zoom.transform, d3.zoomIdentity.translate(transScale[0][0],transScale[0][1]).scale(transScale[0][2]))
-
-      .duration(750)
-      .call( zoom.transform, d3.zoomIdentity.translate(transScale[1][0],transScale[1][1]).scale(transScale[1][2]));
-
-
-
-
-}
-
-
-
-
-
 
 
 
 function reset() {
-  active.classed("active", false);
+
   active = d3.select(null);
 
   g.transition()
-      .duration(750)
+  .duration(1500)
       .call( zoom.transform, d3.zoomIdentity );
 }
 
@@ -317,7 +649,7 @@ function zoomTo(location, scale) {
   return transform;
 }
 
-console.log(zoomTo(ny,4));
+// console.log(zoomTo(tucson3,4));
 
 function zoomed() {
 
