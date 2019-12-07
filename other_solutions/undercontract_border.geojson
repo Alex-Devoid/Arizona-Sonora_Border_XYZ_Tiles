@@ -147,47 +147,8 @@
   												 				 }
   												 		 },
 
-  																{
-  	 																		"type": "Feature",
-  	 																		"geometry": {
-  	 																				"type": "LineString",
-  	 																				"coordinates": [
-
-  	 																						[-115.922787,32.63273],[-115.662399,32.652563]
-
-
-  	 																				]
-  	 																		},
-  	 																		"properties": {
-  	 																				"project": "El Centro Sector Project 1",
-  																					"DHSPriority": "4",
-  																					"foot18": "$259 million for 15.25 miles of 18-foot-high barriers.",
-  																					"foot30": "$313 million for 15.25 miles of 30-foot-high barriers.",
-  																					"funding": "Moving forward with a plan to use Pentagon funding."
-
-  	 																		}
-  	 																},
-  																	{
-  		 																		"type": "Feature",
-  		 																		"geometry": {
-  		 																				"type": "MultiLineString",
-  		 																				"coordinates": [
-
-  		 																						[[-107.923151,31.7837],[-107.679049,31.783689]],
-  																								[[-107.573919,31.783672],[-107.038154,31.783741]]
-
-
-  		 																				]
-  		 																		},
-  		 																		"properties": {
-  		 																				"project": "El Paso Sector Project 1",
-  																						"DHSPriority": "3",
-  																						"foot18": "$255 million for 15 miles of 18-foot-high barriers in segment one and $527 million for 31 miles of 18-foot-high barriers in segment two.",
-  																						"foot30": "$308 million for 15 miles of 30-foot-high barriers in segment one and $636 million for 31 miles of 18-foot-high barriers in segment two.",
-  																						"funding": "Moving forward with a plan to use Pentagon funding."
-
-  		 																		}
-  		 																},
+  																
+  																	
 
 
 { "type": "Feature", "properties": {
