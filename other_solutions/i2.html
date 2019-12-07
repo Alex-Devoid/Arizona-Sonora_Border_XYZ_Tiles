@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+.attr('font-size', 32)<!DOCTYPE html>
 <meta charset="utf-8">
 <head>
 <title>basemap -- pan & zoom</title>
@@ -366,47 +366,47 @@ g.append("image")
 
 
     var rect = svg.append('rect').attr('width', 500)
-                   .attr('height', 80)
+                   .attr('height', 220)
                    .attr('x', (width/1.5 -90))
                    .attr('y', height/4 -4)
                    .style('fill', 'white')
                    .style('opacity', .6)
                    .attr('stroke', 'black')
                    console.log(width/1.49);
-    var textContractor = svg.append('text').text('The Trump administration has awarded $1.95 billion')
+    var textContractor = svg.append('text').text('The Trump administration has')
     .attr('x', width/1.49 -90)
-    .attr('y', height/3.75)
+    .attr('y', height/3.75 + 5)
     .attr('fill', 'black')
-    .attr('font-size', 20)
+    .attr('font-size', 32)
 
     var textPlace = svg.append('text').text('')
     .attr('x', width/1.49 -90)
-      .attr('y', height/3.75 + 92)
+      .attr('y', height/3.75 + 168)
 
     .attr('id', "place1")
     .attr('fill', 'black')
-    .attr('font-size', 20)
+    .attr('font-size', 32)
 
-    var textCost = svg.append('text').text('in construction contracts to three companies')
+    var textCost = svg.append('text').text('awarded $1.95 billion in construction ')
     .attr('x', width/1.49 -90)
-    .attr('y', height/3.75 + 26)
+    .attr('y', height/3.75 + 42)
 
     .attr('fill', 'black')
-    .attr('font-size', 20)
+    .attr('font-size', 32)
     // .attr('font-size', 16)
 
-    var textCostPerMile = svg.append('text').text('to build more border walls in Arizona.')
+    var textCostPerMile = svg.append('text').text('contracts to three companies to')
     .attr('x', width/1.49 -90)
 
-    .attr('y', height/3.75 + 48)
+    .attr('y', height/3.75 + 84)
     .attr('fill', 'black')
-    .attr('font-size', 20)
+    .attr('font-size', 32)
 
-    var textMiles = svg.append('text').text('')
+    var textMiles = svg.append('text').text('build more border walls in Arizona.')
     .attr('x', width/1.49 -90)
-    .attr('y', height/3.75 + 70)
+    .attr('y', height/3.75 + 126)
     .attr('fill', 'black')
-    .attr('font-size', 20)
+    .attr('font-size', 32)
 
 
 function changeText(properties){
@@ -415,30 +415,30 @@ function changeText(properties){
 
 
   textContractor.transition().text(properties.contractor)
-  .attr('font-size', 20)
+  .attr('font-size', 32)
 
                 // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
                 // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
 
 
   textMiles.transition().text(properties.contractMiles)
-  .attr('font-size', 20)
+  .attr('font-size', 32)
            // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
            // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
 
   textCost.transition().text( properties.contractCost+" in total.")
 
-  .attr('font-size', 20)
+  .attr('font-size', 32)
           // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
           // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
 
   textCostPerMile.transition().text(properties.contractCostPerMile+" per mile.")
-  .attr('font-size', 20)
+  .attr('font-size', 32)
                   // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
                   // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
 
   textPlace.transition().text(properties.contractPlace)
-  .attr('font-size', 20)
+  .attr('font-size', 32)
 
                   // .transition().duration(1000).attr('font-size', 22).attr('fill', '#ffff66')
                   // .transition().duration(1000).attr('font-size', 20).attr('fill', 'black')
@@ -457,14 +457,14 @@ function changeText(properties){
 
 
                   rect.transition().duration(1000).attr('width', 530)
-                                 .attr('height', 125 + 80)
+                                 .attr('height', 260)
                                  .attr('x', (width/1.5 -90) - 20)
                                  .attr('y', height/4 -24)
                                  .style('fill', '#ffff66')
                                  .style('stroke', '#ffff66')
                                  .style("stroke-opacity",  1)
                   .transition().duration(1000).attr('width', 525)
-                                 .attr('height', 125)
+                                 .attr('height', 220)
                                  .attr('x', (width/1.5 -90))
                                  .attr('y', height/4 -4)
                                  .style('fill', 'white')
